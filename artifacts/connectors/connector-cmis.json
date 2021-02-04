@@ -1,0 +1,8 @@
+{
+    "name": "Connector CMIS",
+    "description": "CMIS Connectors for Bonita.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-cmis",
+    "version": "3.0.4"
+}

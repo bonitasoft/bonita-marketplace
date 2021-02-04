@@ -1,0 +1,8 @@
+{
+    "name": "Connector Database",
+    "description": "Enables interactions in your Bonita processes with various databases.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-database",
+    "version": "2.0.3"
+}
