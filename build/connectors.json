@@ -1,0 +1,130 @@
+[
+{
+    "name": "Connector CMIS",
+    "description": "CMIS Connectors for Bonita.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-cmis",
+    "version": "3.0.4"
+},
+{
+    "name": "Connector Database",
+    "description": "Enables interactions in your Bonita processes with various databases.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-database",
+    "version": "2.0.3"
+},
+{
+    "name": "Connector Office - Document converter",
+    "description": "Bonita connector that convert Office document (in formats docx and odt) into PDF or HTML.",
+    "type": "Connector",
+    "icon": "https://raw.githubusercontent.com/alachambre/bonita-artifacts-provider/master/icons/office_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-document-converter",
+    "version": "2.1.0"
+},
+{
+    "name": "Connector Office - Document templating",
+    "description": "Bonita connector for Office document templating.",
+    "type": "Connector",
+    "icon": "https://raw.githubusercontent.com/alachambre/bonita-artifacts-provider/master/icons/office_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-document-templating",
+    "version": "2.1.0"
+},
+{
+    "name": "Connector email",
+    "description": "Enables interactions in your Bonita processes with mail servers.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-email",
+    "version": "1.3.0"
+},
+{
+    "name": "Connector Google calendar V3",
+    "description": "Bonita connector for google calendar API v3 integration.",
+    "type": "Connector",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/langfr-1024px-Google_Calendar_icon_%282020%29.svg.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-google-calendar-v3",
+    "version": "1.1.0"
+},
+{
+    "name": "Connector Groovy",
+    "description": "Groovy connector for Bonita. Execute groovy scripts in a Bonita connector.",
+    "type": "Connector",
+    "icon": "https://seeklogo.com/images/G/groovy-logo-45CC24D539-seeklogo.com.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-groovy",
+    "version": "1.1.2"
+},
+{
+    "name": "Connector LDAP",
+    "description": "Bonita connector used for connecting to an LDAP server and retrieve external organization information to be used in a process.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-ldap",
+    "version": "1.2.1"
+},
+{
+    "name": "Connector REST",
+    "description": "Bonita connector to send HTTP requests",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-rest",
+    "version": "1.0.10"
+},
+{
+    "name": "Connector Salesforce",
+    "description": "Bonita connector used for Salesforce integration.",
+    "type": "Connector",
+    "icon": "https://seeklogo.com/images/S/salesforce-logo-F6B237ABDC-seeklogo.com.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-salesforce",
+    "version": "1.1.3"
+},
+{
+    "name": "Connector SAP",
+    "description": "Bonita connector to interact with an SAP system.",
+    "type": "Connector",
+    "icon": "https://cdn.iconscout.com/icon/free/png-256/sap-5-569505.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-sap-parent",
+    "version": "2.0.1"
+},
+{
+    "name": "Connector shell scripts",
+    "description": "Connector used to execute shell scripts within a process.",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-shell-script",
+    "version": "1.1.1"
+},
+{
+    "name": "Connector Twitter",
+    "description": "Bonita connector to send twitter messages",
+    "type": "Connector",
+    "icon": "https://image.flaticon.com/icons/png/512/124/124021.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-twitter",
+    "version": "1.2.1"
+},
+{
+    "name": "Connector UIPath",
+    "description": "Bonita connector to interact with an UIPath system",
+    "type": "Connector",
+    "icon": "https://www.finsmes.com/wp-content/uploads/2018/09/uipath.jpg",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-uipath",
+    "version": "2.1.1"
+},
+{
+    "name": "Connector Webservice",
+    "description": "Bonita connector to interact with webservices",
+    "type": "Connector",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-webservice",
+    "version": "1.3.2"
+}
+]

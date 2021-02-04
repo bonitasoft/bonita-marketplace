@@ -1,0 +1,9 @@
+{
+    "name": "Connector Office - Document templating",
+    "description": "Bonita connector for Office document templating.",
+    "type": "Connector",
+    "icon": "https://raw.githubusercontent.com/alachambre/bonita-artifacts-provider/master/icons/office_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-document-templating",
+    "version": "2.1.0"
+}

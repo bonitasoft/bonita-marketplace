@@ -1,0 +1,8 @@
+{
+    "name": "Actor filter initiator",
+    "description": "Bonita Actor Filter that filter users of an actor based on the process initiator.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-initiator",
+    "version": "1.0.0"
+}

@@ -1,0 +1,50 @@
+[
+{
+    "name": "Actor filter custom user information",
+    "description": "Filter users of an actor based on their custom user information.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-custom-user-info",
+    "version": "1.0.0"
+},
+{
+    "name": "Actor filter initiator manager",
+    "description": "Bonita Actor Filter that filter users of an actor based on the manager of the process initiator.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-initiator-manager",
+    "version": "1.0.0"
+},
+{
+    "name": "Actor filter initiator",
+    "description": "Bonita Actor Filter that filter users of an actor based on the process initiator.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-initiator",
+    "version": "1.0.0"
+},
+{
+    "name": "Actor filter same task user",
+    "description": "Bonita Actor Filter that filter users of an actor based on the user of a specific task.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-same-task-user",
+    "version": "1.0.0"
+},
+{
+    "name": "Actor filter single user",
+    "description": "Bonita Actor Filter that filter users of an actor based on a single user Id.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-single-user",
+    "version": "1.0.0"
+},
+{
+    "name": "Actor filter user manager",
+    "description": "Bonita Actor Filter that filter users of an actor based on the manager of the specified user.",
+    "type": "Actor filter",
+    "groupId": "org.bonitasoft.actorfilter",
+    "artifactId": "bonita-actorfilter-user-manager",
+    "version": "1.0.0"
+}
+]

@@ -1,0 +1,9 @@
+{
+    "name": "Connector Twitter",
+    "description": "Bonita connector to send twitter messages",
+    "type": "Connector",
+    "icon": "https://image.flaticon.com/icons/png/512/124/124021.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-twitter",
+    "version": "1.2.1"
+}

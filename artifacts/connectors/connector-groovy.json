@@ -1,0 +1,9 @@
+{
+    "name": "Connector Groovy",
+    "description": "Groovy connector for Bonita. Execute groovy scripts in a Bonita connector.",
+    "type": "Connector",
+    "icon": "https://seeklogo.com/images/G/groovy-logo-45CC24D539-seeklogo.com.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-groovy",
+    "version": "1.1.2"
+}
