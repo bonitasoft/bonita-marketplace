@@ -69,7 +69,7 @@ for filename in $FILTERSDIR/*.json; do
 done
 
 # Close Json array
-echo "\n]" >> $CONNECTORSDESTFILE
-echo "\n]" >> $FILTERSDESTFILE
+echo "]" >> $CONNECTORSDESTFILE
+echo "]" >> $FILTERSDESTFILE
 
 echo_big "Build success!"
