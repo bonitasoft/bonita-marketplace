@@ -2,6 +2,7 @@
     "name": "Connector Office - Document converter",
     "description": "Bonita connector that convert Office document (in formats docx and odt) into PDF or HTML.",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/office_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-document-converter",

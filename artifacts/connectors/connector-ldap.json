@@ -2,6 +2,7 @@
     "name": "Connector LDAP",
     "description": "Bonita connector used for connecting to an LDAP server and retrieve external organization information to be used in a process.",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-ldap",
     "version": "1.2.1"

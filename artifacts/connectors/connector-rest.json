@@ -2,6 +2,7 @@
     "name": "Connector REST",
     "description": "Bonita connector to send HTTP requests",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-rest",
     "version": "1.0.10"

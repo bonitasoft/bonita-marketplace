@@ -2,6 +2,7 @@
     "name": "Connector SAP",
     "description": "Bonita connector to interact with an SAP system.",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "icon": "https://cdn.iconscout.com/icon/free/png-256/sap-5-569505.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-sap-parent",

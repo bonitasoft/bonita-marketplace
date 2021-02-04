@@ -2,6 +2,7 @@
     "name": "Connector UIPath",
     "description": "Bonita connector to interact with an UIPath system",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "icon": "https://www.finsmes.com/wp-content/uploads/2018/09/uipath.jpg",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-uipath",

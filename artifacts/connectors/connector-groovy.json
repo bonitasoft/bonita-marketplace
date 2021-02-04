@@ -2,6 +2,7 @@
     "name": "Connector Groovy",
     "description": "Groovy connector for Bonita. Execute groovy scripts in a Bonita connector.",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "icon": "https://seeklogo.com/images/G/groovy-logo-45CC24D539-seeklogo.com.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-groovy",

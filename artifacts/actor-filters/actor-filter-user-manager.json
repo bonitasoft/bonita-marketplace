@@ -2,6 +2,7 @@
     "name": "Actor filter user manager",
     "description": "Bonita Actor Filter that filter users of an actor based on the manager of the specified user.",
     "type": "Actor filter",
+    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.actorfilter",
     "artifactId": "bonita-actorfilter-user-manager",
     "version": "1.0.0"

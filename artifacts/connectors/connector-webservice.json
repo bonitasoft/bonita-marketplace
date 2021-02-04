@@ -2,6 +2,7 @@
     "name": "Connector Webservice",
     "description": "Bonita connector to interact with webservices",
     "type": "Connector",
+    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-webservice",
     "version": "1.3.2"
