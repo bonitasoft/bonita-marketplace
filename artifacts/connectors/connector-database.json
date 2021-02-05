@@ -7,7 +7,7 @@
     "versions": [
         {
             "version": "2.0.3",
-            "bonitaMinVersion": "7.14.0"
+            "bonitaMinVersion": "7.13.0"
         }
     ]
 }
