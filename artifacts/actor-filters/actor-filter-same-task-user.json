@@ -2,8 +2,12 @@
     "name": "Actor filter same task user",
     "description": "Bonita Actor Filter that filter users of an actor based on the user of a specific task.",
     "type": "Actor filter",
-    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.actorfilter",
     "artifactId": "bonita-actorfilter-same-task-user",
-    "version": "1.0.0"
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
 }

@@ -2,8 +2,12 @@
     "name": "Connector Database",
     "description": "Enables interactions in your Bonita processes with various databases.",
     "type": "Connector",
-    "bonitaMinVersion": "7.13.0",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-database",
-    "version": "2.0.3"
+    "versions": [
+        {
+            "version": "2.0.3",
+            "bonitaMinVersion": "7.14.0"
+        }
+    ]
 }

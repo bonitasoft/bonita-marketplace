@@ -2,9 +2,13 @@
     "name": "Connector Office - Document templating",
     "description": "Bonita connector for Office document templating.",
     "type": "Connector",
-    "bonitaMinVersion": "7.13.0",
     "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/office_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-document-templating",
-    "version": "2.1.0"
+    "versions": [
+        {
+            "version": "2.1.0",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
 }
