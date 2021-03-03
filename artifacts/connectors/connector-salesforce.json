@@ -2,7 +2,7 @@
     "name": "Connector Salesforce",
     "description": "Bonita connector used for Salesforce integration.",
     "type": "Connector",
-    "icon": "https://seeklogo.com/images/S/salesforce-logo-F6B237ABDC-seeklogo.com.png",
+    "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/salesforce_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-salesforce",
     "versions": [

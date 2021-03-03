@@ -2,7 +2,7 @@
     "name": "Connector Twitter",
     "description": "Bonita connector to send twitter messages",
     "type": "Connector",
-    "icon": "https://image.flaticon.com/icons/png/512/124/124021.png",
+    "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/twitter_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-twitter",
     "versions": [
