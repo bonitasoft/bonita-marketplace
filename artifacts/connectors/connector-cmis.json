@@ -2,6 +2,7 @@
     "name": "Connector CMIS",
     "description": "CMIS Connectors for Bonita.",
     "type": "Connector",
+    "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/cmis_icon.png",
     "definitions": [
         {
             "id": "cmis-createfolder",

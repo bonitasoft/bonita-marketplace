@@ -1,0 +1,14 @@
+{
+    "name": "PostgreSQL",
+    "description": "PostgreSQL database JDBC driver",
+    "type": "Database driver",
+    "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/postgresql_icon.png",
+    "groupId": "org.postgresql",
+    "artifactId": "postgresql",
+    "versions": [
+        {
+            "version": "42.2.19",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}
