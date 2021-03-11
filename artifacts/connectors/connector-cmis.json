@@ -3,44 +3,6 @@
     "description": "CMIS Connectors for Bonita.",
     "type": "Connector",
     "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/cmis_icon.png",
-    "definitions": [
-        {
-            "id": "cmis-createfolder",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-deletefolder",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-deletedocument",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-deleteversionofdocument",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-downloadadocument",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-listdocuments",
-            "version": "1.0.0"
-        },
-        {
-            "id": "cmis-uploadnewdocument",
-            "version": "2.0.1"
-        },
-        {
-            "id": "cmis-uploadnewdocuments",
-            "version": "1.0.0"
-        },
-        {
-            "id": "cmis-uploadnewversionofdocument",
-            "version": "2.0.1"
-        }
-    ],
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-cmis",
     "versions": [
