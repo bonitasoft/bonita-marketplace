@@ -1,0 +1,14 @@
+{
+    "name": "AS/400",
+    "description": "The Open Source version of the IBM Toolbox for Java",
+    "type": "Database driver",
+    "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/as400_icon.png",
+    "groupId": "net.sf.jt400",
+    "artifactId": "jt400",
+    "versions": [
+        {
+            "version": "10.5",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}

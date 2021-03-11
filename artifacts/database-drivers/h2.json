@@ -10,5 +10,6 @@
             "version": "1.4.200",
             "bonitaMinVersion": "7.13.0"
         }
-    ]
+    ],
+    "scope" : "provided"
 }
