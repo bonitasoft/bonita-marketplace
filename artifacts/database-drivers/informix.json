@@ -1,6 +1,6 @@
 {
     "name": "IBM Informix",
-    "description": "Informix® JDBC Driver is a native-protocol, pure-Java driver (Type 4) that supports the JDBC specification. You can use the JDBC driver for Java applications that access the Informix database server.",
+    "description": "InformixÂ® JDBC Driver is a native-protocol, pure-Java driver (Type 4) that supports the JDBC specification. You can use the JDBC driver for Java applications that access the Informix database server.",
     "type": "Database driver",
     "icon": "https://raw.githubusercontent.com/bonitasoft/bonita-marketplace/main/icons/informix_icon.png",
     "groupId": "com.ibm.informix",
