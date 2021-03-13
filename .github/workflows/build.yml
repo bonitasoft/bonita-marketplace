@@ -11,5 +11,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Execute build script
-        run: ./build.sh
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build marketplace
+        run: ./mvnw clean package

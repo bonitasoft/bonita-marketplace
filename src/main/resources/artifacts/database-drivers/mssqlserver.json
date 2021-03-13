@@ -1,0 +1,14 @@
+{
+    "name": "Microsoft SQL Server",
+    "description": "SQL Server database JDBC driver",
+    "type": "Database driver",
+    "icon": "sqlserver_icon.png",
+    "groupId": "com.microsoft.sqlserver",
+    "artifactId": "mssql-jdbc",
+    "versions": [
+        {
+            "version": "9.2.1.jre11",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}

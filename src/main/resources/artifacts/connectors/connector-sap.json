@@ -1,0 +1,14 @@
+{
+    "name": "Connector SAP",
+    "description": "Bonita connector to interact with an SAP system.",
+    "type": "Connector",
+    "icon": "sap_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-sap",
+    "versions": [
+        {
+            "version": "2.0.2",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}

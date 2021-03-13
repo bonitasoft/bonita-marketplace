@@ -1,0 +1,14 @@
+{
+    "name": "MySQL",
+    "description": "MySQL database JDBC driver",
+    "type": "Database driver",
+    "icon": "mysql_icon.png",
+    "groupId": "mysql",
+    "artifactId": "mysql-connector-java",
+    "versions": [
+        {
+            "version": "8.0.23",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}
