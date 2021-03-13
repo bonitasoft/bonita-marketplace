@@ -1,1 +1,5 @@
-build/*
+/bin/
+/target/
+/.settings
+/.mvn/wrapper/*.jar
+/.project

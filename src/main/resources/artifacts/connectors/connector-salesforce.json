@@ -1,0 +1,14 @@
+{
+    "name": "Connector Salesforce",
+    "description": "Bonita connector used for Salesforce integration.",
+    "type": "Connector",
+    "icon": "salesforce_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-salesforce",
+    "versions": [
+        {
+            "version": "1.1.3",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}

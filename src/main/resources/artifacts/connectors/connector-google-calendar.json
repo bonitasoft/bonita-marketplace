@@ -1,0 +1,14 @@
+{
+    "name": "Connector Google calendar V3",
+    "description": "Bonita connector for google calendar API v3 integration.",
+    "type": "Connector",
+    "icon": "calendar_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-google-calendar-v3",
+    "versions": [
+        {
+            "version": "1.1.0",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}

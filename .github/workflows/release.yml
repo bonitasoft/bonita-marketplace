@@ -15,9 +15,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Execute build script
-        run: ./build.sh
+        
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+          server-id: github
+          
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Build marketplace 
+        run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }}
 
       - name: changelog
         uses: scottbrenner/generate-changelog-action@master 
@@ -38,35 +49,13 @@ jobs:
           draft: false
           prerelease: false
      
-      - name: Upload Connectors Asset
-        id: upload-connectors-asset 
+      - name: Upload Marketplace Asset
+        id: upload-marketplace-asset 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: build/connectors.json
-          asset_name: connectors.json
-          asset_content_type: application/json
-
-      - name: Upload Actor filters Asset
-        id: upload-actor-filters-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: build/actorfilters.json
-          asset_name: actorfilters.json
-          asset_content_type: application/json
-          
-      - name: Upload Database drivers Asset
-        id: upload-database-drivers-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: build/drivers.json
-          asset_name: drivers.json
-          asset_content_type: application/json
+          asset_path: target/bonita-marketplace-${{ github.event.inputs.version }}.zip
+          asset_name: bonita-marketplace-${{  github.event.inputs.version }}.zip
+          asset_content_type: application/zip

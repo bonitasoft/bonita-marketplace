@@ -1,0 +1,14 @@
+{
+    "name": "SQLite",
+    "description": "SQLite database JDBC driver",
+    "type": "Database driver",
+    "icon": "sqlite_icon.png",
+    "groupId": "org.xerial",
+    "artifactId": "sqlite-jdbc",
+    "versions": [
+        {
+            "version": "3.34.0",
+            "bonitaMinVersion": "7.13.0"
+        }
+    ]
+}
