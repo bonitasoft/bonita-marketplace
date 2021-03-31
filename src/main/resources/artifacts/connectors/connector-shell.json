@@ -1,5 +1,5 @@
 {
-    "name": "Connector shell scripts",
+    "name": "Shell scripts",
     "description": "Connector used to execute shell scripts within a process.",
     "type": "Connector",
     "icon": "shell_icon.png",
