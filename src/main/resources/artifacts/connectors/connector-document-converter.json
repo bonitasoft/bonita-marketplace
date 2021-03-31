@@ -1,5 +1,5 @@
 {
-    "name": "Connector Office - Document converter",
+    "name": "Office - Document converter",
     "description": "Bonita connector that convert Office document (in formats docx and odt) into PDF or HTML.",
     "type": "Connector",
     "icon": "office_icon.png",
