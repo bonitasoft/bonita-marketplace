@@ -1,5 +1,5 @@
 {
-    "name": "Connector SAP",
+    "name": "SAP",
     "description": "Bonita connector to interact with an SAP system.",
     "type": "Connector",
     "icon": "sap_icon.png",
