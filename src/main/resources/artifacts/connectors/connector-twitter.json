@@ -1,5 +1,5 @@
 {
-    "name": "Connector Twitter",
+    "name": "Twitter",
     "description": "Bonita connector to send twitter messages",
     "type": "Connector",
     "icon": "twitter_icon.png",
