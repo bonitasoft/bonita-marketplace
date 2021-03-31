@@ -1,5 +1,5 @@
 {
-    "name": "Connector REST",
+    "name": "REST",
     "description": "Bonita connector to send HTTP requests",
     "type": "Connector",
     "icon": "rest_icon.png",
