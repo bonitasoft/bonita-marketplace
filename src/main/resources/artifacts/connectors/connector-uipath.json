@@ -1,5 +1,5 @@
 {
-    "name": "Connector UIPath",
+    "name": "UIPath",
     "description": "Bonita connector to interact with an UIPath system",
     "type": "Connector",
     "icon": "uipath_icon.png",
