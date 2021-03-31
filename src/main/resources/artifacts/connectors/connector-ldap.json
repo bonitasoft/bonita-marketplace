@@ -1,5 +1,5 @@
 {
-    "name": "Connector LDAP",
+    "name": "LDAP",
     "description": "Bonita connector used for connecting to an LDAP server and retrieve external organization information to be used in a process.",
     "type": "Connector",
     "groupId": "org.bonitasoft.connectors",
