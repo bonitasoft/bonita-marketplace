@@ -1,5 +1,5 @@
 {
-    "name": "Connector Database",
+    "name": "Database",
     "description": "Enables interactions in your Bonita processes with various databases using the JDBC API.",
     "type": "Connector",
     "icon": "database_icon.png",
