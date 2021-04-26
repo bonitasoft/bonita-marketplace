@@ -1,5 +1,5 @@
 {
-    "name": "Connector Groovy",
+    "name": "Groovy",
     "description": "Groovy connector for Bonita. Execute groovy scripts in a Bonita connector.",
     "type": "Connector",
     "icon": "groovy_icon.png",

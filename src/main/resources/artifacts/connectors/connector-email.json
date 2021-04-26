@@ -1,5 +1,5 @@
 {
-    "name": "Connector email",
+    "name": "Email",
     "description": "Enables interactions in your Bonita processes with mail servers.",
     "type": "Connector",
     "icon": "email_icon.png",

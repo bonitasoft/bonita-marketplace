@@ -1,5 +1,5 @@
 {
-    "name": "Connector Google calendar V3",
+    "name": "Google calendar",
     "description": "Bonita connector for google calendar API v3 integration.",
     "type": "Connector",
     "icon": "calendar_icon.png",

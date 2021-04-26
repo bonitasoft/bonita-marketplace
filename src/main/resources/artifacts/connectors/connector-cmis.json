@@ -1,5 +1,5 @@
 {
-    "name": "Connector CMIS",
+    "name": "CMIS",
     "description": "CMIS Connectors for Bonita.",
     "type": "Connector",
     "icon": "cmis_icon.png",

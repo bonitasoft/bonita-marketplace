@@ -1,5 +1,5 @@
 {
-    "name": "Actor filter user manager",
+    "name": "User manager",
     "description": "Bonita Actor Filter that filter users of an actor based on the manager of the specified user.",
     "type": "Actor filter",
     "groupId": "org.bonitasoft.actorfilter",

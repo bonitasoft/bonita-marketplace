@@ -1,5 +1,5 @@
 {
-    "name": "Connector Office - Document templating",
+    "name": "Office - Document templating",
     "description": "Bonita connector for Office document templating.",
     "type": "Connector",
     "icon": "office_icon.png",

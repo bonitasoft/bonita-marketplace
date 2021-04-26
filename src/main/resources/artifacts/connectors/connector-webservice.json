@@ -1,5 +1,5 @@
 {
-    "name": "Connector Webservice",
+    "name": "Webservice",
     "description": "Bonita connector to interact with webservices",
     "type": "Connector",
     "icon": "webservice_icon.png",

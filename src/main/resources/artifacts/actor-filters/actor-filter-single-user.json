@@ -1,5 +1,5 @@
 {
-    "name": "Actor filter single user",
+    "name": "Single user",
     "description": "Bonita Actor Filter that filter users of an actor based on a single user Id.",
     "type": "Actor filter",
     "groupId": "org.bonitasoft.actorfilter",

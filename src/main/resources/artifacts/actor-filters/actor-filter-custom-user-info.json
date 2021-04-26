@@ -1,5 +1,5 @@
 {
-    "name": "Actor filter custom user information",
+    "name": "Custom user information",
     "description": "Filter users of an actor based on their custom user information.",
     "type": "Actor filter",
     "groupId": "org.bonitasoft.actorfilter",

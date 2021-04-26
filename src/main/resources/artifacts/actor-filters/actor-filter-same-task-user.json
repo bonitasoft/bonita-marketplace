@@ -1,5 +1,5 @@
 {
-    "name": "Actor filter same task user",
+    "name": "Same task user",
     "description": "Bonita Actor Filter that filter users of an actor based on the user of a specific task.",
     "type": "Actor filter",
     "groupId": "org.bonitasoft.actorfilter",

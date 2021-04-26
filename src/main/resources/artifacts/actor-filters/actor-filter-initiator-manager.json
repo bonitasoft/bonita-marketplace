@@ -1,5 +1,5 @@
 {
-    "name": "Actor filter initiator manager",
+    "name": "Initiator manager",
     "description": "Bonita Actor Filter that filter users of an actor based on the manager of the process initiator.",
     "type": "Actor filter",
     "groupId": "org.bonitasoft.actorfilter",
