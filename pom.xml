@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.bonitasoft</groupId>
 	<artifactId>bonita-marketplace</artifactId>
-	<version>1.0.11-SNAPSHOT</version>
+	<version>1.0.11</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -87,7 +87,7 @@
 	
 	<scm>
 		<developerConnection>scm:git:https://github.com/bonitasoft/bonita-marketplace.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>1.0.11</tag>
   </scm>
 	
 </project>
