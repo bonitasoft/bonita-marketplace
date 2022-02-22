@@ -7,7 +7,23 @@
     "artifactId": "bonita-connector-rest",
     "versions": [
         {
+            "version": "1.0.10",
+            "bonitaMinVersion": "7.13.0"
+        },
+        {
+            "version": "1.1.0",
+            "bonitaMinVersion": "7.13.0"
+        },
+        {
+            "version": "1.1.1",
+            "bonitaMinVersion": "7.13.0"
+        },
+        {
             "version": "1.2.0",
+            "bonitaMinVersion": "7.13.0"
+        },
+        {
+            "version": "1.2.1",
             "bonitaMinVersion": "7.13.0"
         }
     ]
