@@ -7,7 +7,7 @@
     "artifactId": "bonita-connector-sap",
     "versions": [
         {
-            "version": "2.0.2",
+            "version": "2.0.3",
             "bonitaMinVersion": "7.13.0"
         }
     ]
