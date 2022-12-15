@@ -7,7 +7,7 @@
     "artifactId": "mssql-jdbc",
     "versions": [
         {
-            "version": "9.2.1.jre11",
+            "version": "11.2.1.jre11",
             "bonitaMinVersion": "7.13.0"
         }
     ]
