@@ -40,7 +40,7 @@
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy-json</artifactId>
-                        <version>3.0.14</version>
+                        <version>3.0.15</version>
                     </dependency>
                 </dependencies>
                 <executions>
