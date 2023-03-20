@@ -15,48 +15,34 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           java-version: 11
           distribution: temurin
           server-id: github
-          
+
       - name: Configure Git user
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
 
-      - name: Build marketplace release 
+      - name: Build marketplace release
         run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }}
 
       - name: changelog
-        uses: scottbrenner/generate-changelog-action@master 
+        uses: scottbrenner/generate-changelog-action@master
         id: Changelog
         env:
           REPO: ${{ github.repository }}
-    
+
       - name: Create Github Release
         id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.event.inputs.version }}
-          release_name: Release ${{ github.event.inputs.version }}
+          tag: ${{ github.event.inputs.version }}
+          name: Release ${{ github.event.inputs.version }}
           body: |
             ${{ steps.Changelog.outputs.changelog }}
-          draft: false
-          prerelease: false
-     
-      - name: Upload Marketplace Asset
-        id: upload-marketplace-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: target/bonita-marketplace-${{ github.event.inputs.version }}.zip
-          asset_name: bonita-marketplace-${{  github.event.inputs.version }}.zip
-          asset_content_type: application/zip
+          artifacts: target/bonita-marketplace-${{ github.event.inputs.version }}.zip
