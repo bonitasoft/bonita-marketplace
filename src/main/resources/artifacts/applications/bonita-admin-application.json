@@ -1,0 +1,14 @@
+{
+    "name": "Bonita Admin Application",
+    "description": "This application allows to deploy and manage all the elements of Bonita projects.",
+    "type": "Application",
+    "icon": "bonita-admin-app_icon.png",
+    "groupId": "org.bonitasoft.web.application",
+    "artifactId": "bonita-admin-application",
+    "versions": [
+        {
+            "version": "",
+            "bonitaMinVersion": "9.0.0"
+        }
+    ]
+}

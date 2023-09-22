@@ -7,7 +7,7 @@
     "artifactId": "sqlite-jdbc",
     "versions": [
         {
-            "version": "3.40.0.0",
+            "version": "3.43.0.0",
             "bonitaMinVersion": "7.13.0"
         }
     ]

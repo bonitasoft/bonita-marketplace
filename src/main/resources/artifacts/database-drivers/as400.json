@@ -7,7 +7,7 @@
     "artifactId": "jt400",
     "versions": [
         {
-            "version": "10.5",
+            "version": "20.0.3",
             "bonitaMinVersion": "7.13.0"
         }
     ]

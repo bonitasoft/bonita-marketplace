@@ -1,0 +1,14 @@
+{
+    "name": "Bonita Admin Application Enterprise",
+    "description": "This application allows to deploy and manage all the elements of Bonita projects. This enterprise version adds advanced case visualization and monitoring features.",
+    "type": "Application",
+    "icon": "bonita-admin-app_icon.png",
+    "groupId": "com.bonitasoft.web.application",
+    "artifactId": "bonita-admin-application-sp",
+    "versions": [
+        {
+            "version": "",
+            "bonitaMinVersion": "9.0.0"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Bonita User Application",
+    "description": "This application allows you to start or work on cases you are involved in.",
+    "type": "Application",
+    "icon": "bonita-user-app_icon.png",
+    "groupId": "org.bonitasoft.web.application",
+    "artifactId": "bonita-user-application",
+    "versions": [
+        {
+            "version": "",
+            "bonitaMinVersion": "9.0.0"
+        }
+    ]
+}

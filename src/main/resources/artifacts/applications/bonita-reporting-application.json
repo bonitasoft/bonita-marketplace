@@ -1,0 +1,14 @@
+{
+    "name": "Bonita Reporting Application",
+    "description": "Dedicated application for reporting, analyze cases and activities historical execution data.",
+    "type": "Application",
+    "icon": "reporting-app_icon.png",
+    "groupId": "com.bonitasoft.web.application",
+    "artifactId": "bonita-reporting-application",
+    "versions": [
+        {
+            "version": "1.3.0",
+            "bonitaMinVersion": "9.0.0"
+        }
+    ]
+}
