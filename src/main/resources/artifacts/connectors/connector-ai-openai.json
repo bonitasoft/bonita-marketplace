@@ -1,0 +1,14 @@
+{
+    "name": "OpenAI",
+    "description": "Bonita connectors to interact with OpenAI",
+    "type": "Connector",
+    "icon": "openai.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-ai-openai",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2.0"
+        }
+    ]
+}

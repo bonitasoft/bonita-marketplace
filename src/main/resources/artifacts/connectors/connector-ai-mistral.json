@@ -1,0 +1,14 @@
+{
+    "name": "MistralAI",
+    "description": "Bonita connectors to interact with MistralAI",
+    "type": "Connector",
+    "icon": "mistral-ai.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-ai-mistral",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2.0"
+        }
+    ]
+}
