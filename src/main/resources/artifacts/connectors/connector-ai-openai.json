@@ -1,6 +1,6 @@
 {
     "name": "OpenAI",
-    "description": "Bonita connectors to interact with OpenAI",
+    "description": "Bonita connectors for interacting with OpenAI",
     "type": "Connector",
     "icon": "openai_icon.png",
     "groupId": "org.bonitasoft.connectors",

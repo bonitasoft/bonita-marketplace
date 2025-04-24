@@ -1,6 +1,6 @@
 {
     "name": "MistralAI",
-    "description": "Bonita connectors to interact with MistralAI",
+    "description": "Bonita connectors for interacting with MistralAI",
     "type": "Connector",
     "icon": "mistral-ai_icon.png",
     "groupId": "org.bonitasoft.connectors",
