@@ -24,6 +24,12 @@ To create a new release:
 
 This will generate a new release with assets (zip file) containing the Bonita Marketplace content.
 
-Bonita Studio periodically downloads the latest release assets from this repository to update its list of available extensions.
+## Updating the Marketplace in Bonita Studio
 
-For more details, see the code responsible for [retrieving the assets](https://github.com/bonitasoft/bonita-studio/blob/10.2.0/bundles/plugins/org.bonitasoft.studio.application/src/org/bonitasoft/studio/application/ui/control/model/dependency/BonitaMarketplace.java#L149-L165).
+Bonita Studio ships with an offline copy of the marketplace, allowing users to install extensions without an internet connection. This copy is refreshed with each Bonita Studio release.
+
+To provide users with the latest extensions, periodically update the Studio repository with the newest marketplace release. This requires updating both the marketplace version and its checksum—see the [Bonita Studio repository](https://github.com/bonitasoft/bonita-studio/blob/38fce4513e1fddfa1496e75494dbad028722fe24/pom.xml#L23-L24) for details.
+
+Bonita Studio also periodically downloads the latest release assets from this repository to update its list of available extensions.
+
+For implementation details, refer to the code responsible for [retrieving the assets](https://github.com/bonitasoft/bonita-studio/blob/10.2.0/bundles/plugins/org.bonitasoft.studio.application/src/org/bonitasoft/studio/application/ui/control/model/dependency/BonitaMarketplace.java#L149-L165).
