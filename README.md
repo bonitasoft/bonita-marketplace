@@ -26,9 +26,9 @@ This will generate a new release with assets (zip file) containing the Bonita Ma
 
 ## Updating the Marketplace in Bonita Studio
 
-Bonita Studio ships with an offline copy of the marketplace, allowing users to install extensions without an internet connection. This copy is refreshed with each Bonita Studio release.
+Bonita Studio ships with an offline copy of the marketplace, allowing users to install extensions without an internet connection. This copy downloaded for each Bonita Studio build.
 
-To provide users with the latest extensions, periodically update the Studio repository with the newest marketplace release. This requires updating both the marketplace version and its checksum—see the [Bonita Studio repository](https://github.com/bonitasoft/bonita-studio/blob/38fce4513e1fddfa1496e75494dbad028722fe24/pom.xml#L23-L24) for details.
+To provide users with the latest extensions, periodically update the Studio repository with the newest marketplace release. This requires updating both the marketplace version and its checksum in the properties of the community `pom.xml` —see the [Bonita Studio repository](https://github.com/bonitasoft/bonita-studio/blob/38fce4513e1fddfa1496e75494dbad028722fe24/pom.xml#L23-L24) for details.
 
 Bonita Studio also periodically downloads the latest release assets from this repository to update its list of available extensions.
 
