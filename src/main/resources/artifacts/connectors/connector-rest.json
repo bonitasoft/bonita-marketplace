@@ -37,7 +37,7 @@
         {
             "version": "1.3.2",
             "bonitaMinVersion": "7.13.0"
-        }
+        },
         {
             "version": "1.4.0",
             "bonitaMinVersion": "9.0.0"
