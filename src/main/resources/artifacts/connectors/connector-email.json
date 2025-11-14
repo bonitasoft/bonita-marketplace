@@ -21,6 +21,10 @@
         {
             "version": "1.4.2",
             "bonitaMinVersion": "7.13.0"
+        },
+        {
+            "version": "1.5.0",
+            "bonitaMinVersion": "9.0.0"
         }
     ]
 }
