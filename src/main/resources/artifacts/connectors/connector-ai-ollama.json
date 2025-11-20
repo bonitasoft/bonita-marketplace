@@ -1,0 +1,14 @@
+{
+    "name": "Ollama",
+    "description": "Bonita connectors for interacting with Ollama",
+    "type": "Connector",
+    "icon": "ollama_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-ai-ollama",
+    "versions": [
+        {
+            "version": "1.1.0",
+            "bonitaMinVersion": "10.2.0"
+        }
+    ]
+}
