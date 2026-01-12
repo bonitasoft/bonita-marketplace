@@ -31,12 +31,6 @@ jobs:
       - name: Build marketplace release
         run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }}
 
-      - name: changelog
-        uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
-        env:
-          REPO: ${{ github.repository }}
-
       - name: Create Github Release
         id: create_release
         uses: ncipollo/release-action@v1
@@ -46,3 +40,5 @@ jobs:
           body: |
             ${{ steps.Changelog.outputs.changelog }}
           artifacts: target/bonita-marketplace-${{ github.event.inputs.version }}.zip
+          generateReleaseNotes: true
+
