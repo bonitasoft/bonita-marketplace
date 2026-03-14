@@ -1,0 +1,57 @@
+name: Update marketplace on connector release
+
+on:
+  repository_dispatch:
+    types: [new-connector-release]
+
+jobs:
+  update-marketplace:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Update marketplace.json
+        run: |
+          ARTIFACT_ID="${{ github.event.client_payload.artifactId }}"
+          VERSION="${{ github.event.client_payload.version }}"
+          MIN_VERSION="${{ github.event.client_payload.bonitaMinVersion }}"
+
+          # Check if artifact exists in marketplace.json
+          EXISTS=$(jq --arg aid "$ARTIFACT_ID" '[.[] | select(.artifactId == $aid)] | length' src/main/resources/marketplace.json)
+
+          if [ "$EXISTS" -eq "0" ]; then
+            echo "::error::Artifact $ARTIFACT_ID not found in marketplace.json. Add it manually first."
+            exit 1
+          fi
+
+          # Check if version already exists
+          VERSION_EXISTS=$(jq --arg aid "$ARTIFACT_ID" --arg ver "$VERSION" \
+            '[.[] | select(.artifactId == $aid) | .versions[] | select(.version == $ver)] | length' src/main/resources/marketplace.json)
+
+          if [ "$VERSION_EXISTS" -gt "0" ]; then
+            echo "::warning::Version $VERSION already exists for $ARTIFACT_ID. Skipping."
+            exit 0
+          fi
+
+          # Add new version to existing connector entry
+          jq --arg aid "$ARTIFACT_ID" \
+             --arg ver "$VERSION" \
+             --arg minVer "$MIN_VERSION" \
+             'map(if .artifactId == $aid
+                  then .versions += [{"version": $ver, "bonitaMinVersion": $minVer}]
+                  else . end)' \
+             src/main/resources/marketplace.json > tmp.json && mv tmp.json src/main/resources/marketplace.json
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: add ${{ github.event.client_payload.artifactId }} ${{ github.event.client_payload.version }}"
+          branch: "chore/update-${{ github.event.client_payload.artifactId }}-${{ github.event.client_payload.version }}"
+          title: "Add ${{ github.event.client_payload.artifactId }} ${{ github.event.client_payload.version }} to marketplace"
+          body: |
+            Automated update triggered by connector release.
+
+            - **Artifact:** ${{ github.event.client_payload.artifactId }}
+            - **Version:** ${{ github.event.client_payload.version }}
+            - **Min Bonita Version:** ${{ github.event.client_payload.bonitaMinVersion }}
+          delete-branch: true
