@@ -1,0 +1,14 @@
+{
+  "name": "SharePoint",
+  "description": "Bonita SharePoint connector",
+  "type": "Connector",
+  "icon": "sharepoint_icon.png",
+  "groupId": "org.bonitasoft.connectors",
+  "artifactId": "bonita-connector-sharepoint",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "bonitaMinVersion": "10.2"
+    }
+  ]
+}
