@@ -10,48 +10,132 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Update marketplace.json
+      - name: Parse payload
+        id: payload
         run: |
-          ARTIFACT_ID="${{ github.event.client_payload.artifactId }}"
-          VERSION="${{ github.event.client_payload.version }}"
-          MIN_VERSION="${{ github.event.client_payload.bonitaMinVersion }}"
+          echo "artifactId=${{ github.event.client_payload.artifactId }}" >> "$GITHUB_OUTPUT"
+          echo "version=${{ github.event.client_payload.version }}" >> "$GITHUB_OUTPUT"
+          echo "minVersion=${{ github.event.client_payload.bonitaMinVersion }}" >> "$GITHUB_OUTPUT"
+          echo "connectorName=${{ github.event.client_payload.connectorName }}" >> "$GITHUB_OUTPUT"
+          echo "iconUrl=${{ github.event.client_payload.iconUrl }}" >> "$GITHUB_OUTPUT"
 
-          # Check if artifact exists in marketplace.json
-          EXISTS=$(jq --arg aid "$ARTIFACT_ID" '[.[] | select(.artifactId == $aid)] | length' src/main/resources/marketplace.json)
-
-          if [ "$EXISTS" -eq "0" ]; then
-            echo "::error::Artifact $ARTIFACT_ID not found in marketplace.json. Add it manually first."
-            exit 1
+      - name: Find connector JSON file
+        id: find
+        run: |
+          ARTIFACT_ID="${{ steps.payload.outputs.artifactId }}"
+          FILE=$(grep -rl "\"${ARTIFACT_ID}\"" src/main/resources/artifacts/connectors/ 2>/dev/null | head -1 || true)
+          if [ -z "$FILE" ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Artifact $ARTIFACT_ID not found. Will create a new entry."
+          else
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "file=$FILE" >> "$GITHUB_OUTPUT"
+            echo "Found existing entry: $FILE"
           fi
 
-          # Check if version already exists
-          VERSION_EXISTS=$(jq --arg aid "$ARTIFACT_ID" --arg ver "$VERSION" \
-            '[.[] | select(.artifactId == $aid) | .versions[] | select(.version == $ver)] | length' src/main/resources/marketplace.json)
+      - name: Update existing connector version
+        if: steps.find.outputs.exists == 'true'
+        run: |
+          FILE="${{ steps.find.outputs.file }}"
+          VERSION="${{ steps.payload.outputs.version }}"
+          MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
+
+          VERSION_EXISTS=$(jq --arg ver "$VERSION" \
+            '[.versions[] | select(.version == $ver)] | length' "$FILE")
 
           if [ "$VERSION_EXISTS" -gt "0" ]; then
-            echo "::warning::Version $VERSION already exists for $ARTIFACT_ID. Skipping."
+            echo "::warning::Version $VERSION already exists. Skipping."
             exit 0
           fi
 
-          # Add new version to existing connector entry
-          jq --arg aid "$ARTIFACT_ID" \
-             --arg ver "$VERSION" \
+          jq --arg ver "$VERSION" \
              --arg minVer "$MIN_VERSION" \
-             'map(if .artifactId == $aid
-                  then .versions += [{"version": $ver, "bonitaMinVersion": $minVer}]
-                  else . end)' \
-             src/main/resources/marketplace.json > tmp.json && mv tmp.json src/main/resources/marketplace.json
+             '.versions += [{"version": $ver, "bonitaMinVersion": $minVer}]' \
+             "$FILE" > tmp.json && mv tmp.json "$FILE"
+
+          echo "Added version $VERSION to $FILE"
+
+      - name: Create new connector entry
+        if: steps.find.outputs.exists == 'false'
+        run: |
+          ARTIFACT_ID="${{ steps.payload.outputs.artifactId }}"
+          VERSION="${{ steps.payload.outputs.version }}"
+          MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
+          CONNECTOR_NAME="${{ steps.payload.outputs.connectorName }}"
+
+          FILE_NAME=$(echo "$ARTIFACT_ID" | sed 's/^bonita-//')
+          FILE_PATH="src/main/resources/artifacts/connectors/${FILE_NAME}.json"
+
+          if [ -z "$CONNECTOR_NAME" ]; then
+            CONNECTOR_NAME=$(echo "$ARTIFACT_ID" | sed 's/bonita-connector-//;s/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
+          fi
+
+          ICON_NAME="${FILE_NAME##connector-}_icon.png"
+
+          jq -n \
+            --arg name "$CONNECTOR_NAME" \
+            --arg aid "$ARTIFACT_ID" \
+            --arg icon "$ICON_NAME" \
+            --arg ver "$VERSION" \
+            --arg minVer "$MIN_VERSION" \
+            '{
+              name: $name,
+              description: ("Bonita " + $name + " connector"),
+              type: "Connector",
+              icon: $icon,
+              groupId: "org.bonitasoft.connectors",
+              artifactId: $aid,
+              versions: [{ version: $ver, bonitaMinVersion: $minVer }]
+            }' > "$FILE_PATH"
+
+          echo "Created new entry: $FILE_PATH"
+
+      - name: Download icon from connector repo
+        run: |
+          ICON_URL="${{ steps.payload.outputs.iconUrl }}"
+          ARTIFACT_ID="${{ steps.payload.outputs.artifactId }}"
+          FILE_NAME=$(echo "$ARTIFACT_ID" | sed 's/^bonita-//')
+          ICON_NAME="${FILE_NAME##connector-}_icon.png"
+          ICON_PATH="src/main/resources/icons/${ICON_NAME}"
+
+          if [ -f "$ICON_PATH" ]; then
+            echo "Icon already exists at $ICON_PATH"
+            exit 0
+          fi
+
+          if [ -n "$ICON_URL" ]; then
+            echo "Downloading icon from $ICON_URL"
+            curl -sL "$ICON_URL" -o "$ICON_PATH"
+          else
+            # Try to fetch from the connector repo using GitHub raw content
+            REPO="bonitasoft/${ARTIFACT_ID}"
+            DEFAULT_BRANCH=$(curl -sL "https://api.github.com/repos/${REPO}" | jq -r '.default_branch // "main"')
+            # Try common icon paths
+            for ICON_PATH_TRY in \
+              "src/main/resources/${ARTIFACT_ID##bonita-connector-}.png" \
+              "src/main/resources/${ARTIFACT_ID##bonita-}.png" \
+              "src/main/resources/icon.png"; do
+              URL="https://raw.githubusercontent.com/${REPO}/${DEFAULT_BRANCH}/${ICON_PATH_TRY}"
+              HTTP_CODE=$(curl -sL -o "$ICON_PATH" -w "%{http_code}" "$URL")
+              if [ "$HTTP_CODE" = "200" ]; then
+                echo "Downloaded icon from $URL"
+                exit 0
+              fi
+            done
+            echo "::warning::Could not find icon for $ARTIFACT_ID. Add it manually."
+            rm -f "$ICON_PATH"
+          fi
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "chore: add ${{ github.event.client_payload.artifactId }} ${{ github.event.client_payload.version }}"
-          branch: "chore/update-${{ github.event.client_payload.artifactId }}-${{ github.event.client_payload.version }}"
-          title: "Add ${{ github.event.client_payload.artifactId }} ${{ github.event.client_payload.version }} to marketplace"
+          commit-message: "chore: add ${{ steps.payload.outputs.artifactId }} ${{ steps.payload.outputs.version }}"
+          branch: "chore/update-${{ steps.payload.outputs.artifactId }}-${{ steps.payload.outputs.version }}"
+          title: "Add ${{ steps.payload.outputs.artifactId }} ${{ steps.payload.outputs.version }} to marketplace"
           body: |
             Automated update triggered by connector release.
 
-            - **Artifact:** ${{ github.event.client_payload.artifactId }}
-            - **Version:** ${{ github.event.client_payload.version }}
-            - **Min Bonita Version:** ${{ github.event.client_payload.bonitaMinVersion }}
+            - **Artifact:** ${{ steps.payload.outputs.artifactId }}
+            - **Version:** ${{ steps.payload.outputs.version }}
+            - **Min Bonita Version:** ${{ steps.payload.outputs.minVersion }}
           delete-branch: true
