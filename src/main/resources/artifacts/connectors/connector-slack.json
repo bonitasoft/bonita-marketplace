@@ -1,0 +1,14 @@
+{
+    "name": "Slack",
+    "description": "Bonita connector for Slack — send messages, DMs, upload files, create channels, and manage invitations",
+    "type": "Connector",
+    "icon": "slack_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-slack-all",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}
