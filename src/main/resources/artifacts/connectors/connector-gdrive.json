@@ -1,14 +1,18 @@
 {
-  "name": "Google Drive",
-  "description": "Bonita Google Drive connector",
-  "type": "Connector",
-  "icon": "gdrive_icon.png",
-  "groupId": "org.bonitasoft.connectors",
-  "artifactId": "bonita-connector-gdrive",
-  "versions": [
-    {
-      "version": "1.0.0",
-      "bonitaMinVersion": "10.2"
-    }
-  ]
+    "name": "Google Drive",
+    "description": "Bonita Google Drive connector",
+    "type": "Connector",
+    "icon": "gdrive_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-gdrive",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2"
+        },
+        {
+            "version": "1.0.1-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
 }

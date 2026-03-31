@@ -1,6 +1,6 @@
 {
     "name": "JasperReports",
-    "description": "Bonita connector for JasperReports Server — start reports, check execution status, download reports, cancel executions, and get input controls",
+    "description": "Bonita connector for JasperReports Server \u00e2\u20ac\u201d start reports, check execution status, download reports, cancel executions, and get input controls",
     "type": "Connector",
     "icon": "jasperreports_icon.png",
     "groupId": "org.bonitasoft.connectors",
@@ -8,6 +8,10 @@
     "versions": [
         {
             "version": "1.0.0",
+            "bonitaMinVersion": "10.2"
+        },
+        {
+            "version": "1.0.1-beta.1",
             "bonitaMinVersion": "10.2"
         }
     ]
