@@ -1,0 +1,14 @@
+{
+    "name": "Google Drive",
+    "description": "Bonita connector for Google Drive — upload, download, create folders, move, delete, search, and export files",
+    "type": "Connector",
+    "icon": "gdrive_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-gdrive",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}
