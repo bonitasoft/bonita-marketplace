@@ -1,14 +1,14 @@
 {
-  "name": "AWS S3",
-  "description": "Bonita AWS S3 connector",
-  "type": "Connector",
-  "icon": "s3_icon.png",
-  "groupId": "org.bonitasoft.connectors",
-  "artifactId": "bonita-connector-s3",
-  "versions": [
-    {
-      "version": "1.0.0",
-      "bonitaMinVersion": "10.2.0"
-    }
-  ]
+    "name": "AWS S3",
+    "description": "Bonita connector for Amazon S3 — upload, download, delete, copy objects, generate presigned URLs, and multipart uploads",
+    "type": "Connector",
+    "icon": "s3_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-s3",
+    "versions": [
+        {
+            "version": "1.0.0",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
 }
