@@ -1,0 +1,14 @@
+{
+    "name": "Telegram",
+    "description": "Bonita connector for Telegram — send messages, documents, photos, and pin messages via Bot API",
+    "type": "Connector",
+    "icon": "telegram_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-telegram",
+    "versions": [
+        {
+            "version": "1.0.0-beta.2",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

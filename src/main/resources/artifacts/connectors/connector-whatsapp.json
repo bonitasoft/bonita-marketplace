@@ -1,0 +1,14 @@
+{
+    "name": "WhatsApp",
+    "description": "Bonita connector for WhatsApp Business — send templates, text, media, and manage conversations",
+    "type": "Connector",
+    "icon": "whatsapp_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-whatsapp",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}
