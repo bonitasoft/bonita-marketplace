@@ -1,6 +1,6 @@
 {
   "name": "Yousign",
-  "description": "Bonita Yousign connector",
+  "description": "Bonita connector for Yousign eSignature — create, manage, and track electronic signature requests via API v3",
   "type": "Connector",
   "icon": "yousign_icon.png",
   "groupId": "org.bonitasoft.connectors",
@@ -8,7 +8,7 @@
   "versions": [
     {
       "version": "1.0.0-beta.1",
-      "bonitaMinVersion": "10.2.0"
+      "bonitaMinVersion": "10.2"
     }
   ]
 }
