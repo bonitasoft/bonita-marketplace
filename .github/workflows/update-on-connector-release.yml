@@ -127,7 +127,7 @@ jobs:
           fi
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore: add ${{ steps.payload.outputs.artifactId }} ${{ steps.payload.outputs.version }}"
           branch: "chore/update-${{ steps.payload.outputs.artifactId }}-${{ steps.payload.outputs.version }}"
