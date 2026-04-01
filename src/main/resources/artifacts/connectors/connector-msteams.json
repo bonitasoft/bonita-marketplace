@@ -1,0 +1,14 @@
+{
+    "name": "Microsoft Teams",
+    "description": "Bonita connector for Microsoft Teams — messages, channels, teams, meetings, and file uploads",
+    "type": "Connector",
+    "icon": "msteams_icon.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-msteams",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}
