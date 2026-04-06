@@ -1,0 +1,14 @@
+{
+    "name": "HubSpot CRM",
+    "description": "Bonita connector for HubSpot CRM -- deal management, contact lifecycle, and property-based search",
+    "type": "Connector",
+    "icon": "hubspot.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-hubspot",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

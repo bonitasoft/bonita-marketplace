@@ -1,0 +1,14 @@
+{
+    "name": "Adobe Sign",
+    "description": "Bonita connector for Adobe Sign -- agreement creation, status tracking, document retrieval, and cancellation",
+    "type": "Connector",
+    "icon": "adobesign.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-adobe-sign",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

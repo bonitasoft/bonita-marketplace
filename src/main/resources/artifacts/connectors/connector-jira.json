@@ -1,0 +1,14 @@
+{
+    "name": "JIRA / Confluence",
+    "description": "Bonita connector for Atlassian JIRA and Confluence -- issue management, transitions, comments, search, and page creation",
+    "type": "Connector",
+    "icon": "jira.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-jira",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

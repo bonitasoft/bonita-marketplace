@@ -1,0 +1,14 @@
+{
+    "name": "Microsoft Dynamics 365",
+    "description": "Bonita connector for Microsoft Dynamics 365 -- entity CRUD, OData queries, and custom action execution",
+    "type": "Connector",
+    "icon": "dynamics.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-ms-dynamics",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

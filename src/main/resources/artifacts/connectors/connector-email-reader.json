@@ -1,0 +1,14 @@
+{
+    "name": "Email Reader (IMAP)",
+    "description": "Bonita connector for reading emails via IMAP -- inbox reading, message retrieval, attachments, and search",
+    "type": "Connector",
+    "icon": "email-reader.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-email-reader",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

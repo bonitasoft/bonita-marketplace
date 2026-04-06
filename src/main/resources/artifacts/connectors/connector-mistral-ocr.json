@@ -1,0 +1,14 @@
+{
+    "name": "Mistral OCR",
+    "description": "Bonita connector for Mistral OCR -- text extraction, field extraction, document classification, and table extraction",
+    "type": "Connector",
+    "icon": "mistral-ocr.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-mistral-ocr",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "ServiceNow",
+    "description": "Bonita connector for ServiceNow -- incident management, change requests, table queries, and journal entries",
+    "type": "Connector",
+    "icon": "servicenow.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-servicenow",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Microsoft Excel",
+    "description": "Bonita connector for Microsoft Excel -- read/write sheets and cell ranges with formula evaluation (Apache POI)",
+    "type": "Connector",
+    "icon": "excel.png",
+    "groupId": "org.bonitasoft.connectors",
+    "artifactId": "bonita-connector-excel",
+    "versions": [
+        {
+            "version": "1.0.0-beta.1",
+            "bonitaMinVersion": "10.2"
+        }
+    ]
+}
