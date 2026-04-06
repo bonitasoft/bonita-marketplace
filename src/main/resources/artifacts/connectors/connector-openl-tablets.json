@@ -2,7 +2,7 @@
     "name": "OpenL Tablets",
     "description": "Bonita connector for OpenL Tablets -- business rule execution, service discovery, and method introspection",
     "type": "Connector",
-    "icon": "openl.png",
+    "icon": "openl_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-openl-tablets",
     "versions": [

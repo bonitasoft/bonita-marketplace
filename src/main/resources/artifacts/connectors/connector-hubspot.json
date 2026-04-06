@@ -2,7 +2,7 @@
     "name": "HubSpot CRM",
     "description": "Bonita connector for HubSpot CRM -- deal management, contact lifecycle, and property-based search",
     "type": "Connector",
-    "icon": "hubspot.png",
+    "icon": "hubspot_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-hubspot",
     "versions": [

@@ -2,7 +2,7 @@
     "name": "AI Agent Orchestrator",
     "description": "Bonita connector for AI agent orchestration -- ReAct loop execution, tool calling, human-in-the-loop, and audit traces",
     "type": "Connector",
-    "icon": "ai-agent.png",
+    "icon": "ai-agent_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-ai-agent",
     "versions": [

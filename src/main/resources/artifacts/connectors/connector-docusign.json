@@ -2,7 +2,7 @@
     "name": "DocuSign eSignature",
     "description": "Bonita connector for DocuSign -- envelope creation, signing, status tracking, and document retrieval",
     "type": "Connector",
-    "icon": "docusign.png",
+    "icon": "docusign_icon.png",
     "groupId": "org.bonitasoft.connectors",
     "artifactId": "bonita-connector-docusign",
     "versions": [
