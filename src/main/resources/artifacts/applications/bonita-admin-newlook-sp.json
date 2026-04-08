@@ -1,0 +1,14 @@
+{
+    "name": "Admin Application (New Look)",
+    "description": "New look of the Bonita admin application. Provides monitoring, case management, process management, task management and organization features.",
+    "type": "Application",
+    "icon": "bonita-admin-app_icon.png",
+    "groupId": "com.bonitasoft.web.application",
+    "artifactId": "bonita-admin-newlook-sp",
+    "versions": [
+        {
+            "version": "1.0.2",
+            "bonitaMinVersion": "10.2.0"
+        }
+    ]
+}
