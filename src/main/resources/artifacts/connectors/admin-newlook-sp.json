@@ -1,0 +1,14 @@
+{
+  "name": "Bonita Admin Newlook Sp",
+  "description": "Bonita Bonita Admin Newlook Sp connector",
+  "type": "Connector",
+  "icon": "admin-newlook-sp_icon.png",
+  "groupId": "org.bonitasoft.connectors",
+  "artifactId": "bonita-admin-newlook-sp",
+  "versions": [
+    {
+      "version": "1.0.4",
+      "bonitaMinVersion": "10.2.0"
+    }
+  ]
+}
