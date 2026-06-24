@@ -1,0 +1,14 @@
+{
+    "name": "Bonita User Application Enterprise",
+    "description": "This application allows you to start or work on cases you are involved in. This enterprise version adds delegation feature.",
+    "type": "Application",
+    "icon": "bonita-user-app_icon.png",
+    "groupId": "com.bonitasoft.web.application",
+    "artifactId": "bonita-user-application-sp",
+    "versions": [
+        {
+            "version": "",
+            "bonitaMinVersion": "11.1.0"
+        }
+    ]
+}
