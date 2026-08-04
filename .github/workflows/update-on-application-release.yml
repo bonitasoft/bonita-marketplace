@@ -1,0 +1,107 @@
+name: Update marketplace on application release
+
+# Receiver counterpart of update-on-connector-release.yml, but for applications.
+# The bonita-admin-newlook-sp-application release workflow dispatches a
+# `new-application-release` event (see that repo's release.yml, issue #91); this
+# workflow catches it and opens a PR that adds the released version to the
+# application's marketplace descriptor under artifacts/applications/.
+
+on:
+  repository_dispatch:
+    types: [new-application-release]
+
+jobs:
+  update-marketplace:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Parse payload
+        id: payload
+        run: |
+          echo "artifactId=${{ github.event.client_payload.artifactId }}" >> "$GITHUB_OUTPUT"
+          echo "version=${{ github.event.client_payload.version }}" >> "$GITHUB_OUTPUT"
+          echo "minVersion=${{ github.event.client_payload.bonitaMinVersion }}" >> "$GITHUB_OUTPUT"
+
+      - name: Find application JSON file
+        id: find
+        run: |
+          ARTIFACT_ID="${{ steps.payload.outputs.artifactId }}"
+          FILE=$(grep -rl "\"${ARTIFACT_ID}\"" src/main/resources/artifacts/applications/ 2>/dev/null | head -1 || true)
+          if [ -z "$FILE" ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Artifact $ARTIFACT_ID not found under applications/. Will create a new entry."
+          else
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "file=$FILE" >> "$GITHUB_OUTPUT"
+            echo "Found existing entry: $FILE"
+          fi
+
+      - name: Update existing application version
+        if: steps.find.outputs.exists == 'true'
+        run: |
+          FILE="${{ steps.find.outputs.file }}"
+          VERSION="${{ steps.payload.outputs.version }}"
+          MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
+
+          VERSION_EXISTS=$(jq --arg ver "$VERSION" \
+            '[.versions[] | select(.version == $ver)] | length' "$FILE")
+
+          if [ "$VERSION_EXISTS" -gt "0" ]; then
+            echo "::warning::Version $VERSION already exists. Skipping."
+            exit 0
+          fi
+
+          jq --arg ver "$VERSION" \
+             --arg minVer "$MIN_VERSION" \
+             '.versions += [{"version": $ver, "bonitaMinVersion": $minVer}]' \
+             "$FILE" > tmp.json && mv tmp.json "$FILE"
+
+          echo "Added version $VERSION to $FILE"
+
+      - name: Create new application entry
+        if: steps.find.outputs.exists == 'false'
+        run: |
+          ARTIFACT_ID="${{ steps.payload.outputs.artifactId }}"
+          VERSION="${{ steps.payload.outputs.version }}"
+          MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
+
+          # The application descriptor file is named after the full artifactId
+          # (e.g. bonita-admin-newlook-sp.json), unlike connectors.
+          FILE_PATH="src/main/resources/artifacts/applications/${ARTIFACT_ID}.json"
+
+          # Best-effort human-readable name from the artifactId — review before merge.
+          APP_NAME=$(echo "$ARTIFACT_ID" | sed 's/^bonita-//;s/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
+
+          jq -n \
+            --arg name "$APP_NAME" \
+            --arg aid "$ARTIFACT_ID" \
+            --arg icon "${ARTIFACT_ID}_icon.png" \
+            --arg ver "$VERSION" \
+            --arg minVer "$MIN_VERSION" \
+            '{
+              name: $name,
+              description: ($name + " application."),
+              type: "Application",
+              icon: $icon,
+              groupId: "com.bonitasoft.web.application",
+              artifactId: $aid,
+              versions: [{ version: $ver, bonitaMinVersion: $minVer }]
+            }' > "$FILE_PATH"
+
+          echo "::warning::Created a new application entry $FILE_PATH — review its name, description and icon (icons/${ARTIFACT_ID}_icon.png) before merging."
+          echo "Created new entry: $FILE_PATH"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: add ${{ steps.payload.outputs.artifactId }} ${{ steps.payload.outputs.version }}"
+          branch: "chore/update-${{ steps.payload.outputs.artifactId }}-${{ steps.payload.outputs.version }}"
+          title: "Add ${{ steps.payload.outputs.artifactId }} ${{ steps.payload.outputs.version }} to marketplace"
+          body: |
+            Automated update triggered by application release.
+
+            - **Artifact:** ${{ steps.payload.outputs.artifactId }}
+            - **Version:** ${{ steps.payload.outputs.version }}
+            - **Min Bonita Version:** ${{ steps.payload.outputs.minVersion }}
+          delete-branch: true
