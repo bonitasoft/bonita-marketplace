@@ -37,27 +37,29 @@ jobs:
             echo "Found existing entry: $FILE"
           fi
 
-      - name: Update existing application version
+      - name: Set application version (latest only)
         if: steps.find.outputs.exists == 'true'
         run: |
           FILE="${{ steps.find.outputs.file }}"
           VERSION="${{ steps.payload.outputs.version }}"
           MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
 
-          VERSION_EXISTS=$(jq --arg ver "$VERSION" \
-            '[.versions[] | select(.version == $ver)] | length' "$FILE")
+          # Applications list only the latest version (unlike connectors, which
+          # keep the full history): replace the versions array with the released one.
+          ALREADY=$(jq --arg ver "$VERSION" --arg minVer "$MIN_VERSION" \
+            '.versions == [{"version": $ver, "bonitaMinVersion": $minVer}]' "$FILE")
 
-          if [ "$VERSION_EXISTS" -gt "0" ]; then
-            echo "::warning::Version $VERSION already exists. Skipping."
+          if [ "$ALREADY" = "true" ]; then
+            echo "::warning::$FILE already lists only $VERSION. Skipping."
             exit 0
           fi
 
           jq --arg ver "$VERSION" \
              --arg minVer "$MIN_VERSION" \
-             '.versions += [{"version": $ver, "bonitaMinVersion": $minVer}]' \
+             '.versions = [{"version": $ver, "bonitaMinVersion": $minVer}]' \
              "$FILE" > tmp.json && mv tmp.json "$FILE"
 
-          echo "Added version $VERSION to $FILE"
+          echo "Set $FILE to version $VERSION"
 
       - name: Create new application entry
         if: steps.find.outputs.exists == 'false'
