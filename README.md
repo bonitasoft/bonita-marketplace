@@ -15,6 +15,30 @@ To add a new extension or update the version of an existing one:
 1. Update or add files in the related directory in `src/main/resources/artifacts`.
 2. Commit and push your changes (prefer the usage of Pull Request).
 
+### Automated updates from extension releases
+
+Extension repositories can notify this repository when they publish a release, so
+the update above is done automatically instead of by hand. On release, the
+extension's workflow sends a [`repository_dispatch`](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)
+event; a receiver workflow here then appends the released version to the
+extension's descriptor (or creates a new entry) and opens a Pull Request for
+review.
+
+| Event type | Receiver workflow | Updates |
+| --- | --- | --- |
+| `new-connector-release` | [`update-on-connector-release.yml`](.github/workflows/update-on-connector-release.yml) | `artifacts/connectors/` |
+| `new-application-release` | [`update-on-application-release.yml`](.github/workflows/update-on-application-release.yml) | `artifacts/applications/` |
+
+The event `client_payload` carries at least `artifactId`, `version` and
+`bonitaMinVersion` (connectors also send `connectorName` and `iconUrl`). The
+artifact itself is already published (Maven Central or Bonita Artifact Repository);
+the descriptor only declares the Maven coordinates and the compatible versions.
+
+For example, a connector or application release workflow dispatches its
+`new-*-release` event after deploying the artifact. When no receiver exists yet
+for an event, the dispatch is a harmless no-op and the descriptor is updated
+manually as described above.
+
 ## Releasing a New Version of Bonita Marketplace
 
 To create a new release:
