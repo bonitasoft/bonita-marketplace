@@ -31,13 +31,13 @@ review.
 
 The event `client_payload` carries at least `artifactId`, `version` and
 `bonitaMinVersion` (connectors also send `connectorName` and `iconUrl`). The
-artifact itself is already published (GitHub releases + JFrog Maven repository);
+artifact itself is already published (Maven Central or Bonita Artifact Repository);
 the descriptor only declares the Maven coordinates and the compatible versions.
 
-For example, the [Admin Application (New Look)](https://github.com/bonitasoft/bonita-admin-newlook-sp-application)
-dispatches `new-application-release` from its `release.yml` after deploying to
-JFrog. When no receiver exists yet for an event, the dispatch is a harmless
-no-op and the descriptor is updated manually as described above.
+For example, a connector or application release workflow dispatches its
+`new-*-release` event after deploying the artifact. When no receiver exists yet
+for an event, the dispatch is a harmless no-op and the descriptor is updated
+manually as described above.
 
 ## Releasing a New Version of Bonita Marketplace
 
