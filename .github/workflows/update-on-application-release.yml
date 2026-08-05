@@ -37,29 +37,33 @@ jobs:
             echo "Found existing entry: $FILE"
           fi
 
-      - name: Set application version (latest only)
+      - name: Set application version
         if: steps.find.outputs.exists == 'true'
         run: |
           FILE="${{ steps.find.outputs.file }}"
           VERSION="${{ steps.payload.outputs.version }}"
           MIN_VERSION="${{ steps.payload.outputs.minVersion }}"
 
-          # Applications list only the latest version (unlike connectors, which
-          # keep the full history): replace the versions array with the released one.
+          # Replace the entry that targets the SAME Bonita min version (the new
+          # release supersedes it), but keep entries with a DIFFERENT min version
+          # (they still serve users on those Bonita versions). Then append the
+          # released one. Per-entry bonitaMinVersion lets Studio pick the right
+          # app version for the runtime.
           ALREADY=$(jq --arg ver "$VERSION" --arg minVer "$MIN_VERSION" \
-            '.versions == [{"version": $ver, "bonitaMinVersion": $minVer}]' "$FILE")
+            'any(.versions[]; .version == $ver and .bonitaMinVersion == $minVer)' "$FILE")
 
           if [ "$ALREADY" = "true" ]; then
-            echo "::warning::$FILE already lists only $VERSION. Skipping."
+            echo "::warning::$FILE already lists $VERSION (min $MIN_VERSION). Skipping."
             exit 0
           fi
 
           jq --arg ver "$VERSION" \
              --arg minVer "$MIN_VERSION" \
-             '.versions = [{"version": $ver, "bonitaMinVersion": $minVer}]' \
+             '.versions = ((.versions | map(select(.bonitaMinVersion != $minVer)))
+                           + [{"version": $ver, "bonitaMinVersion": $minVer}])' \
              "$FILE" > tmp.json && mv tmp.json "$FILE"
 
-          echo "Set $FILE to version $VERSION"
+          echo "Set $VERSION (min $MIN_VERSION) in $FILE"
 
       - name: Create new application entry
         if: steps.find.outputs.exists == 'false'
