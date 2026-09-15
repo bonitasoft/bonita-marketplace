@@ -43,7 +43,7 @@ manually as described above.
 
 To create a new release:
 
-1. Run the [release GitHub action]([.github/workflows/release.yml](https://github.com/bonitasoft/bonita-marketplace/actions/workflows/release.yml)).
+1. Run the [release GitHub Action](https://github.com/bonitasoft/bonita-marketplace/actions/workflows/release.yml).
 2. Select the release version by reviewing the [existing releases](https://github.com/bonitasoft/bonita-marketplace/releases) and incrementing as needed.
 
 This will generate a new release with assets (zip file) containing the Bonita Marketplace content.
